@@ -1,0 +1,43 @@
+
+{% extends 'baseClient.html.twig' %}
+{% block head %}
+
+{% endblock %}
+
+{% block container %}
+    <style>
+        table {
+            border-width:0px;
+            border-color:black;
+            width:50%;
+        }
+        td {
+            border-width:px;
+            padding: 20px;
+            border-color:black;
+            width:50%;
+            margin: 10px;
+
+        }
+    </style>
+    <center>
+<div style="align:center">
+
+    <table border="1px" >
+
+        <H2>Liste des Group </H2>
+        <tr> <th>Nom</th> <th>Description</th>
+        {%for c in list %}
+        <tr>
+
+                <td>
+                    <a style="display: block" href="{{ path('GroupHome',{'id': c.id}) }}">{{ c.nom}}</a></td>
+                <td>{{ c.description }}</td>
+
+            </tr>
+
+        {% endfor %}
+    </table>
+</div>
+    </center>
+{% endblock %}

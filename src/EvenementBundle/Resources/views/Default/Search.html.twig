@@ -1,0 +1,40 @@
+{% extends 'baseClient.html.twig' %}
+{% block head %}
+
+
+{% endblock %}
+{% block container  %}
+<h1 ALIGN=center style="color:#4ecdc4  ;" >Recherche evenement</h1>
+ {{ form_start(form) }}
+ {{ form_widget(form) }}
+<button  class="btn btn-success" type="submit"><i class="icon-ok"></i> Rechercher </button>
+</br>
+</br>
+<table border="1">
+    <tr>
+                        <th style="width:10%">Nom de l'evenement:</th>
+                        <th style="width:10%" data-hide="phone,tablet">Date:</th>
+                       
+                       
+                        <th style="width:10%">Description:</th>
+                         <th style="width:10%">Nom du groupe:</th>
+                     
+                      
+                     
+       
+    </tr>
+    {% for i in Evenement %}
+        <tr>
+                       <td class="v-align-middle">{{ i.nom }}</td>
+                        <td class="v-align-middle">{{ i.date|date('d/m/y')}}</td>
+                        
+                       
+                        <td class="v-align-middle">{{ i.Description }}</td>
+                       <td class="v-align-middle">{{ i.groupe.nom }}</td>
+            
+        </tr>
+    {% endfor %}
+</table>
+</br>
+</br>
+{% endblock  %}

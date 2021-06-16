@@ -1,0 +1,118 @@
+forum_homepage:
+    path:     /
+    defaults: { _controller: ForumBundle:Default:index }
+read:
+    path:     /read
+    defaults: { _controller: ForumBundle:Default:read }
+readmy:
+    path:     /readmy
+    defaults: { _controller: ForumBundle:Default:readmy }
+readrep:
+    path:     /readrep/{id}
+    defaults: { _controller: ForumBundle:Default:readrep }
+readrepa:
+    path:     /readrepa/{id}
+    defaults: { _controller: ForumBundle:Admin:readrepa }
+reada:
+    path:     /reada
+    defaults: { _controller: ForumBundle:Admin:reada }
+readda:
+    path:     /readda/{id}
+    defaults: { _controller: ForumBundle:Admin:readda }
+readd:
+    path:     /readd/{id}
+    defaults: { _controller: ForumBundle:Default:readd }
+delete:
+    path:     /delete/{id}
+    defaults: { _controller: ForumBundle:Default:delete }
+deletea:
+    path:     /deletea/{id}
+    defaults: { _controller: ForumBundle:Admin:deletea }
+deleted:
+    path:     /deleted/{id}
+    defaults: { _controller: ForumBundle:Default:deleted }
+deleterep:
+    path:     /deleterep/{id}
+    defaults: { _controller: ForumBundle:Default:deleterep }
+deleteda:
+    path:     /deleteda/{id}
+    defaults: { _controller: ForumBundle:Admin:deleteda }
+deleterepa:
+    path:     /deleterepa/{id}
+    defaults: { _controller: ForumBundle:Admin:deleterepa }
+report:
+    path:     /report/{id}
+    defaults: { _controller: ForumBundle:Default:report }
+unreport:
+    path:     /unreport/{id}
+    defaults: { _controller: ForumBundle:Default:unreport }
+like:
+    path:     /like/{id}
+    defaults: { _controller: ForumBundle:Default:like }
+unlike:
+    path:     /unlike/{id}
+    defaults: { _controller: ForumBundle:Default:unlike }
+update:
+    path:     /update/{id}
+    defaults: { _controller: ForumBundle:Default:update }
+updated:
+    path:     /updated/{id}
+    defaults: { _controller: ForumBundle:Default:updated }
+updaterep:
+    path:     /updaterep/{id}
+    defaults: { _controller: ForumBundle:Default:updaterep }
+nblike:
+    path:     /nblike/{id}
+    defaults: { _controller: ForumBundle:Default:nblike }
+readread:
+    path:     /readread/{categ}
+    defaults: { _controller: ForumBundle:Default:readread }
+avis:
+    path:     /avis/{id}
+    defaults: { _controller: ForumBundle:Default:ajouteravis }
+bar:
+    path:       /bar/{id}
+    defaults: { _controller: ForumBundle:Default:bar }
+listrm:
+    path:      /listrm
+    defaults: { _controller: ForumBundle:Admin:listrm }
+block:
+    path:      /block/{id}
+    defaults: { _controller: ForumBundle:Admin:block }
+warning:
+    path:      /warning
+    defaults: { _controller: ForumBundle:Default:warning }
+solution:
+    path:     /solution/{id}
+    defaults: { _controller: ForumBundle:Default:solution }
+csolution:
+    path:     /csolution/{id}
+    defaults: { _controller: ForumBundle:Default:csolution }
+getUser:
+    path:     /getUser/{email}
+    defaults: { _controller: ForumBundle:Default:getUser }
+getQuestion:
+    path:     /getQuestion
+    defaults: { _controller: ForumBundle:Default:getQuestion }
+getrep:
+    path:     /getrep
+    defaults: { _controller: ForumBundle:Default:getrep }
+getdesc:
+    path:     /getdesc
+    defaults: { _controller: ForumBundle:Default:getdesc }
+newquestion:
+    path:     /newquestion
+    defaults: { _controller: ForumBundle:Default:newquestion }
+newanswer:
+    path:     /newanswer
+    defaults: { _controller: ForumBundle:Default:newanswer }
+newdisc:
+    path:     /newdisc
+    defaults: { _controller: ForumBundle:Default:newdisc }
+likeM:
+    path:     /likeM
+    defaults: { _controller: ForumBundle:Default:likeM }
+unlikeM:
+    path:     /unlikeM
+    defaults: { _controller: ForumBundle:Default:unlikeM }
+

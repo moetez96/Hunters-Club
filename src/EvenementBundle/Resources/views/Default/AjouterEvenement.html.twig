@@ -1,0 +1,23 @@
+{% extends 'baseClient.html.twig' %}
+{% block head %}
+
+
+{% endblock %}
+{% block container  %}
+
+
+<center>
+                  <h1 id="text" ALIGN=center style="color:#4ecdc4  ;">Ajoute un  evenement </h1>
+                  <fieldset style="width: 50%">
+              {{ form_start( form , {attr: {novalidate: 'novalidate'}} ) }}
+             {{ form_widget(form) }}
+             <h3 style="color:red" >   <a href="https://www.latlong.net/" >Lien pour vos aide a trouver Latitude et longitude d'une adresse</a></h3> 
+           </br>
+         </br>
+       <button class="btn btn-success" type="submit"><i class="icon-ok"></i> Ajouter Evenement </button>
+       <div id="d1"></div>
+   </fieldset>
+</center>
+</br>
+</br>
+{% endblock  %}

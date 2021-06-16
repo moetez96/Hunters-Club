@@ -1,0 +1,39 @@
+AjouterEvenement:
+    path:     /AjouterEvenement
+    defaults: { _controller: EvenementBundle:Evenement:AjouterEvenement }
+ConsulterEvenement:
+    path:     /ConsulterEvenement
+    defaults: { _controller: EvenementBundle:Evenement:ConsulterEvenement }    
+ConsulterMyEvenement:
+    path:     /ConsulterMyEvenement
+    defaults: { _controller: EvenementBundle:Evenement:getMyEvenement }     
+ModifierEvenement:
+    path:     /ModifierEvenement{id}
+    defaults: { _controller: EvenementBundle:Evenement:ModifierEvenement }  
+Supprimer:
+    path:     /Supprimer{id}
+    defaults: { _controller: EvenementBundle:Evenement:Supprimer }            
+rechercherEvenement:
+    path:     /rechercherEvenement
+    defaults: { _controller: EvenementBundle:Evenement:search}     
+AjouterType:
+    path:     /AjouterType
+    defaults: { _controller: EvenementBundle:Evenement:AjouterType}      
+consulterType:
+    path:     /consulterType
+    defaults: { _controller: EvenementBundle:Evenement:consulterType}    
+SupprimerType:
+    path:     /SupprimerType/{id}
+    defaults: { _controller: EvenementBundle:Evenement:SupprimerType }    
+ModifierType:
+    path:     /ModifierType{id}
+    defaults: { _controller: EvenementBundle:Evenement:ModifierType }      
+Maap:
+    path:     /Maap
+    defaults: { _controller: EvenementBundle:Evenement:Maap }  
+pdf:
+    path:     /pdf/{id}
+    defaults: { _controller: EvenementBundle:Evenement:pdf }
+ParticipeEvents:
+    path:     /joinEvents/{id}
+    defaults: { _controller: EvenementBundle:Evenement:joinEvents }

@@ -1,0 +1,42 @@
+{% extends 'baseClient.html.twig' %}
+{% block head %}
+{% endblock %}
+{% block container %}
+<center>
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/rating.css') }}" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ asset('public/js/rating.js') }}"></script>
+
+
+    <div class="row" >
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ asset(saison.animal.getImage()) }}"  width="260" height="260"/>
+                <div class="card-body">
+
+                    <h3 class="card-title">Nom de l'animal :{{ saison.animal.getNomAnnimal() }}</h3>
+                    <h3 class="card-title">Description de l'animal :{{ saison.animal.getDescription() }}</h3>
+                    <h3 class="card-title">Lieu :{{ saison.lieu.getNom() }}</h3>
+                    <h3 class="card-title">Description Lieu :{{ saison.lieu. getDescriptionLieu() }}</h3>
+                    <h3 class="card-title">date Debut :{{ saison.dateDebut | date("m/d/Y") }}</h3>
+                    <h3 class="card-title">date Fin :{{ saison.dateFin | date("m/d/Y") }}</h3>
+                    <h3 class="card-title">Lieu :{{ saison.lieu.getNom() }}</h3>
+
+
+                    <h3 class="card-title">Rating :{{ saison.rating  |  rating(5,"fa-3x")  }}</h3>
+
+                </div>
+            </div>
+            </br>
+            </br>
+            </br>
+            <hr>
+            <a href="http://www.jquery2dotnet.com/" class="mx-auto pb-3 text-center">
+
+            </a>
+        </div>
+
+    {{ form(form) }}
+</center>
+{% endblock %}

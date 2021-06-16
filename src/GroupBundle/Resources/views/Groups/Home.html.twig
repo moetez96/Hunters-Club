@@ -1,0 +1,160 @@
+{% extends 'baseClient.html.twig' %}
+{% block title %}
+    {{ group.nom }}
+{% endblock %}
+{% block head %}
+
+{% endblock %}
+
+{% block container %}
+<header style="top: 0;" >
+    <nav style=" height: 100% ; width:20%  ;float: left; border-right: black solid 1px">
+        <div class="dropdown">
+            <button class="dropbtn scroll ">Notification    </button>
+            <div class="dropdown-content">
+             {% for M in Mem %}
+                <a>
+                    {{ mgilet_notification_render(M) }}
+
+                </a>
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <ul>
+            <li>Nom : {{ group.nom }} </li>
+            <li>Description : {{ group.description }} </li>
+            <!--  <div class="">
+                  <li>   <a href="{{ path("GroupAdd") }}">Members</a></li>
+                  <li>   <a href="{{ path("GroupList") }}">administrateur</a></li>
+                  <li> <a href="{{ path("GroupFondList") }}">description</a></li>
+
+                    <li><a href="{{ path("GroupListMembre") }}">Mon Group Membre</a></li>
+
+
+              </div> -->
+        </ul>
+    </nav>
+
+    <div style="position: relative ;  float: right; width: 80% ;">
+    <img src="{{ asset('img/covGroup.png') }}" style="height: 300px ;width: 1200px">
+    </div>
+</header>
+
+    <br>
+    <section style="alignment: center; margin: 20% ;border-left: black solid 1px""  >
+        <div style="border-left: black solid 1px">
+<div  class="post">
+    {{ form(form) }}
+</div>
+
+
+            {% for p in List %}
+            <p>
+
+
+                <div class="container body-content"  style="border: 1px solid black; display :block ;
+                  width: 77% ;padding:0 7% ;background:#f4f7f8;border-radius: 8px;">
+
+                    <div class="container" style="padding: auto;">
+
+                        <div class="row justify-content-start" style="padding-top:10px;">
+
+                            <div class="col" style="padding-top:10px;">
+                                <img src="{{ asset('img/group.png') }}" style="width: 50px ; height: 50px" >{{ p.idM.getUsername() }}
+                                      <p style="font-size: 7px">{{p.datePost | date}}</p>
+
+                            </div>
+                            <div class="col" style="padding-top:10px;">
+                                <label> </label>
+
+
+
+                            </div>
+                        </div>
+                        <div class="row justify-content-body" style="padding-top:10px; padding-left: 10%">
+                <p class="text-black-20">
+                {{ p.Msg }}
+                </p>
+                </div>
+                <div class="row justify-content-center" style="padding-top:10px;">
+
+                </div>
+                <div class="row justify-content-end" style="padding-top:10px; ">
+
+                    <div >
+                        {% set A = 1 %}
+                        {% for L in likes %}
+                            {% if L.idU.getId() == idU and L.idP.getId()==p.id and A == 1 %}
+                        <a href="{{ path('UnLike',{'id':p.id,'idG':group.id}) }}"  style="display: block">
+                            <img  id="sup" src="{{ asset('Like.svg.png') }}" width="40px" height="40px" id="like" onclick="Like()">
+                        </a>
+                                {% set A = 0 %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if A == 1 %}
+                            <a href="{{ path('Like',{'id':p.id,'idG':group.id}) }}"  style="display: block">
+                                <img  id="sup" src="{{ asset('unLike.png') }}" width="40px" height="40px" id="like" onclick="Like()">
+                            </a>
+                        {% endif %}
+                        <p style="margin: 0px 40px "> {{ p.nbLike  }} Likes</p>
+                    </div>
+
+
+                </div>
+                </div>
+                </div>
+            </p>
+            {% endfor %}
+
+        </div>
+    </section>
+    <style>
+        #sup{
+            width: 30px;
+            height: 30px ;
+        }
+        #sup:hover{
+            width: 35px;
+            height: 35px ;
+        }
+
+        #groupbundle_post_  {
+            float: right;
+            background-color: black;s
+        }
+        .post{
+            max-width: 300px;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background:
+                    #f4f7f8;
+            border-radius: 8px;
+        }
+
+        }
+
+        button {
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            background:
+                    rgb(2, 180, 204);
+            font: bold 24px Arial;
+            color:
+                    #fff;}
+
+       
+    </style>
+    <script >
+        function Like() {
+           obj= document.getElementById("id");
+
+           obj.setAttributeNode(width : "50px");
+           obj.setAttributeNode( height : "50px")
+        }
+        
+    </script>
+
+{% endblock%}

@@ -1,0 +1,106 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Hunter's Club - {% block title %} {% endblock %}</title>
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/shadow.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link id="css-preset" href="{{ asset('css/presets/preset1.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+
+
+    <script src="{{ asset('js/html5shiv.js') }}"></script>
+    <script src="{{ asset('js/respond.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#form").toggle(1000);
+            });
+        });
+    </script>
+    <link href='{{ asset("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700") }}' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="{{ asset('img/hunters.png') }}">
+</head>
+<body>
+<header id="home">
+    <div class="main-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="scroll active"><a href="#home">Acceuil</a></li>
+                    <li class="scroll"><a href="#services">Articles</a></li>
+                    <li class="scroll"><a href="/login">Mon compte</a></li>
+                    <li class="scroll"><a href="#contact">Forum</a></li>
+                    <li class="scroll"><a href="#contact">A propos de nous</a></li>
+                </ul>
+            </div>
+        </div>
+    </div><!--/#main-nav-->
+</header>
+
+
+
+
+
+
+
+
+{% for i in discs %}
+    <div style="background-color:lightblue">
+        {% if i.reponse.id == id %}
+            <center>
+                <li>{{ i.descr }}</li>
+            </center>
+        {% endif %}
+    </div><br>
+{% endfor %}
+
+{{ form(form) }}
+
+
+<footer id="footer">
+    <div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <div class="container text-center">
+            <div class="footer-logo">
+                <a href="index.html"><img class="img-responsive" src="{{ asset('img/hunters.png') }}" alt=""></a>
+            </div>
+            <div class="social-icons">
+                <ul>
+                    <li><a class="envelope" href="#"><i class="fa fa-envelope"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a class="tumblr" href="#"><i class="fa fa-tumblr-square"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>&copy; 2014 Oxygen Theme.</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="pull-right">Designed by <a href="http://www.themeum.com/">Dev-it</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>

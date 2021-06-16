@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+       
+
+<body   style="background-image: url('web/images/pdf.jpg')">
+  <center>
+    <h1 style="color: red " > Les informations de  l'evenement {{ Evenement.nom }}</h1>
+
+  </center>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+   <div class="card-body">
+             
+            <div><h2 style="color:red" class="card-title"></h2><h2>Nom de l'evenement:{{ Evenement.nom }}</h2></div>
+              <h2  style="color: red " class="card-title"></h2><h2>Date de l'evenement:{{ Evenement.date|date('d/m/y')}}</h2></p>
+              <h2   style="color: red"  class="card-title"></h2><h2>Lieu l'evenement:{{ Evenement.lieu }}</h2></p>
+              <h2   style="color: red"  class="card-title"></h2><h2>Description de l'evenement:{{ Evenement.Description }}</h2></p>
+               <h2   style="color: red"  class="card-title"></h2><h2>Latitude de l'evenement:{{ Evenement.Latitude }}</h2></p>
+              <h2  style="color: red" class="card-title"></h2><h2>Longitude de l'evenement:{{ Evenement.Longitude }}</h2></p>
+              <h2   style="color: red" class="card-title"></h2><h2>Groupe de l'evenement:{{ Evenement.groupe.nom }}</h2></p>
+          
+            <h2>Contact</h2>
+            <h2>
+                +216 95291258 </h2>
+            <h2>E-Mail</h2>
+            <h2>
+                HuntersClub@gmail.com -
+                HuntersClub.@yahoo.com</h2>
+        </h2>
+        <br>
+        <br>
+            <center><h4>A propos de nous</h4>
+                  <h4>  <p>Hunter's Club est une application Web et Mobile permet d’améliorer les journées de chasse de petit et grand gibier, pour tout les chasseurs sur le territoire souhaité</p></h4></center>
+    </div> 
+  </div>
+
+</body>
+
+  </html>

@@ -1,0 +1,42 @@
+group:
+    resource: "@GroupBundle/Resources/config/routing.yml"
+    prefix:   /
+
+journale:
+    resource: "@JournaleBundle/Resources/config/routing.yml"
+    prefix:   /
+
+evenement:
+    resource: "@EvenementBundle/Resources/config/routing.yml"
+    prefix:   /
+
+chasse:
+    resource: "@chasseBundle/Resources/config/routing.yml"
+    prefix:   /
+
+article:
+    resource: "@ArticleBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+forum:
+    resource: "@ForumBundle/Resources/config/routing.yml"
+    prefix:   /
+
+client:
+    resource: "@ClientBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin:
+    resource: "@AdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+mgilet_notification:
+    resource: "@MgiletNotificationBundle/Controller/"
+    prefix: /notifications

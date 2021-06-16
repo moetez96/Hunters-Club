@@ -1,0 +1,51 @@
+journale_homepage:
+    path:     /
+    defaults: { _controller: JournaleBundle:Default:index }
+create:
+    path:     /create
+    defaults: { _controller: JournaleBundle:Default:create }
+readJournal:
+    path:     /readJournal
+    defaults: { _controller: JournaleBundle:Default:read}
+MAJ:
+    path:     /MAJ/{id}
+    defaults: { _controller: JournaleBundle:Default:MAJ}
+deleteJournal:
+    path:     /deleteJournal/{id}
+    defaults: { _controller: JournaleBundle:Default:delete}
+deleteAll:
+    path:     /deleteAll/{id}
+    defaults: { _controller: JournaleBundle:Default:deleteAll}
+ListeALLScore:
+    path:     /ListeALLScore
+    defaults: { _controller: JournaleBundle:Trophy:ListeALLScore}
+recherche:
+    path: /recherche
+    defaults: { _controller: JournaleBundle:Default:recherche }
+readAll:
+    path: /readAll
+    defaults: { _controller: JournaleBundle:Default:readAll }
+stat:
+    path: /stat
+    defaults: { _controller: JournaleBundle:Default:stat }
+listeuser:
+    path: /listeuser
+    defaults: { _controller: JournaleBundle:Default:listeuser }
+listenbchasse:
+    path: /listenbchasse
+    defaults: { _controller: JournaleBundle:Default:listenbchasse }
+listeScore:
+    path: /listeScore
+    defaults: { _controller: JournaleBundle:Trophy:listeScore }
+createBareme:
+    path: /createBareme
+    defaults: { _controller: JournaleBundle:Trophy:createBareme }
+readBareme:
+    path: /readBareme
+    defaults: { _controller: JournaleBundle:Trophy:readBareme }
+deleteBareme:
+    path:     /deleteBareme/{id}
+    defaults: { _controller: JournaleBundle:Trophy:deleteBareme}
+updateBareme:
+    path:     /updateBareme/{id}
+    defaults: { _controller: JournaleBundle:Trophy:updateBareme}

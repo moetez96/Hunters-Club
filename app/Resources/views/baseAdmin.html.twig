@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>Hunter's Club - {% block title %}Acceuil{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ asset('img/hunters.png') }}">
+    <!-- Favicons -->
+    <link href= "{{ asset('mg/favicon.png') }} " rel="icon">
+    <link href="{{ asset ('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{asset('lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!--external css-->
+    <link href="{{asset('lib/font-awesome/css/font-awesome.css')  }}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/zabuto_calendar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('lib/gritter/css/jquery.gritter.css') }}" />
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet">
+    <script src="{{ asset('lib/chart-master/Chart.js') }}"></script>
+
+    <!-- =======================================================
+      Template Name: Dashio
+      Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+      Author: TemplateMag.com
+      License: https://templatemag.com/license/
+    ======================================================= -->
+
+</head>
+
+<body>
+
+<section id="container">
+    <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <header class="header black-bg">
+        <div class="sidebar-toggle-box">
+            <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+        </div>
+        <!--logo start-->
+        <a href="index.html" class="logo"><b>Hunter's<span>Club</span></b></a>
+        <!--logo end-->
+        <div class="nav notify-row" id="top_menu">
+            <!--  notification start -->
+            <ul class="nav top-menu">
+                <!-- settings start -->
+                </li>
+                <!-- settings end -->
+                <!-- inbox dropdown start-->
+                    </ul>
+                </li>
+                <!-- inbox dropdown end -->
+                <!-- notification dropdown start-->
+                <li id="header_notification_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                        <i class="fa fa-bell-o"></i>
+                        <span class="badge bg-warning">7</span>
+                    </a>
+                    <ul class="dropdown-menu extended notification">
+                        <div class="notify-arrow notify-arrow-yellow"></div>
+                        <li>
+                            <p class="yellow">You have 7 new notifications</p>
+                        </li>
+
+
+
+                <!-- notification dropdown end -->
+            </ul>
+            <!--  notification end -->
+        </div>
+        <div class="top-menu">
+            <ul class="nav pull-right top-menu">
+                <li><a class="logout" href="/PIDEV/web/app_dev.php/logout">Logout</a></li>
+            </ul>
+        </div>
+    </header>
+    <!--header end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <p class="centered"><a href="profile.html"><img src="{{ asset('img/admin.png') }}" class="img-circle" width="80"></a></p>
+                <h5 class="centered">Admin</h5>
+                <li class="mt">
+                    <a class="active" href="index.html">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-cogs"></i>
+                        <span>Forum </span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href={{ path('reada') }} >All Question</a></li>
+                        <li><a href={{ path('listrm') }}>Block</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-desktop"></i>
+                        <span>Groupes</span>
+                    </a>
+                    <ul class="sub">
+
+                            <!--     <li><a href="{{ path("GroupAdd") }}">Creer Group</a></li> -->
+
+                            <li><a href="{{ path("GroupListAd") }}">Consulter Group</a></li>
+
+                            <!--    <li> <a href="{{ path("GroupListAd") }}">Mon Group</a></li>
+
+                        <li> <a href="{{ path("GroupListMembre") }}">Mon Group Membre</a></li> -->
+
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-cogs"></i>
+                        <span>Chasses </span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href={{ path('addanimal') }} >Ajout Animaux</a></li>
+                        <li><a href={{ path('addsaison') }}>Ajout Saisons</a></li>
+                        <li><a href={{ path('addlieu') }}>Ajout Lieux</a></li>
+                        <li><a href={{ path('listanimal') }} >Animaux </a></li>
+                        <li><a href={{ path('listsaison') }}>Saisons </a></li>
+                        <li><a href={{ path('listlieu') }}>Lieux </a></li>
+                    </ul>
+                </li>
+
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks"></i>
+                        <span>Categories</span>
+                    </a>
+                    <ul class="sub">
+
+                            <li><a href="/PIDEV/web/app_dev.php/AjouterCategorie">AjouterCategorie</a></li>
+                            <li><a href="/PIDEV/web/app_dev.php/ConsulterCategorie">ConsulterCategorie</a></li>
+                            <li><a href="/PIDEV/web/app_dev.php/Annonces">Annonces</a></li>
+                            <li><a href="/PIDEV/web/app_dev.php/Statistique">Statistique</a></li>
+
+
+
+
+
+
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-th"></i>
+                        <span>Type d'evenements</span>
+                    </a>
+
+                        <ul class="sub">
+                            <li><a href="/PIDEV/web/app_dev.php/AjouterType">Ajouter un type</a></li>
+                            <li><a href="/PIDEV/web/app_dev.php/consulterType"> Consulter les types</a></li>
+                        </ul>
+
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class=" fa fa-bar-chart-o"></i>
+                        <span>Trophée </span>
+                    </a>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="/PIDEV/web/app_dev.php/readAll">journaux</a></li>
+
+                    </ul>
+                    <ul class="sub">
+                        <li><a href="/PIDEV/web/app_dev.php/ListeALLScore">trophées</a></li>
+
+                    </ul>
+                    <ul class="sub">
+                        <li><a href="/PIDEV/web/app_dev.php/recherche">Recherche Journal</a></li>
+
+                    </ul>
+                    <ul class="sub">
+                        <li><a href="/PIDEV/web/app_dev.php/listeuser">Statistique</a></li>
+
+                    </ul>
+                    <ul class="sub">
+                        <li><a href="/PIDEV/web/app_dev.php/readBareme">Baréme</a></li>
+
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class=" fa fa-bar-chart-o"></i>
+                        <span>Catégorie </span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="/PIDEV/web/app_dev.php/AjouterCategorie">AjouterCategorie</a></li>
+                        <li><a href="/PIDEV/web/app_dev.php/ConsulterCategorie">ConsulterCategorie</a></li>
+                        <li><a href="/PIDEV/web/app_dev.php/Annonces">Annonces</a></li>
+                        <li><a href="/PIDEV/web/app_dev.php/Statistique">Statistique</a></li>
+
+
+
+
+
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-comments-o"></i>
+                        <span>Groupe</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{ path("GroupListAd") }}">Consulter Group</a></li>
+
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+    <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+
+      *********************************************************************************************************************************************************** -->
+
+    <!--main content start-->
+
+    <section id="main-content">
+
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-9 main-chart">
+                    {% block container %}
+                    <!--CUSTOM CHART START -->
+                    <div class="border-head">
+                        <h3>Nos utulisateur </h3>
+                    </div>
+                    <div class="custom-bar-chart">
+                        <ul class="y-axis">
+                            <li><span>10.000</span></li>
+                            <li><span>8.000</span></li>
+                            <li><span>6.000</span></li>
+                            <li><span>4.000</span></li>
+                            <li><span>2.000</span></li>
+                            <li><span>0</span></li>
+                        </ul>
+                        <div class="bar">
+                            <div class="title">JAN</div>
+                            <div class="value tooltips" data-original-title="8.500" data-toggle="tooltip" data-placement="top">85%</div>
+                        </div>
+                        <div class="bar ">
+                            <div class="title">FEB</div>
+                            <div class="value tooltips" data-original-title="5.000" data-toggle="tooltip" data-placement="top">50%</div>
+                        </div>
+                        <div class="bar ">
+                            <div class="title">MAR</div>
+                            <div class="value tooltips" data-original-title="6.000" data-toggle="tooltip" data-placement="top">60%</div>
+                        </div>
+                        <div class="bar ">
+                            <div class="title">APR</div>
+                            <div class="value tooltips" data-original-title="4.500" data-toggle="tooltip" data-placement="top">45%</div>
+                        </div>
+                        <div class="bar">
+                            <div class="title">MAY</div>
+                            <div class="value tooltips" data-original-title="3.200" data-toggle="tooltip" data-placement="top">32%</div>
+                        </div>
+                        <div class="bar ">
+                            <div class="title">JUN</div>
+                            <div class="value tooltips" data-original-title="6.200" data-toggle="tooltip" data-placement="top">62%</div>
+                        </div>
+                        <div class="bar">
+                            <div class="title">JUL</div>
+                            <div class="value tooltips" data-original-title="7.500" data-toggle="tooltip" data-placement="top">75%</div>
+                        </div>
+                    </div>
+                    <!--custom chart end-->
+                    <div class="row mt">
+                       <!-- SERVER STATUS PANELS -->
+                         <div class="col-md-4 col-sm-4 mb">
+                            <div >
+                                <div>
+
+                                </div>
+
+                            </div>
+                            <!-- /grey-panel -->
+                        </div>
+                        <!-- /col-md-4-->
+                        <div c>
+                            <div >
+                                <div c>
+
+                                </div>
+
+
+
+                                <footer>
+                                    <div class="pull-left">
+
+                                    </div>
+                                    <div class="pull-right">
+
+                                    </div>
+                                </footer>
+                            </div>
+                            <!--  /darkblue panel -->
+                        </div>
+                        <!-- /col-md-4 -->
+                        <div class="col-md-4 col-sm-4 mb">
+                            <!-- REVENUE PANEL -->
+                            <div >
+
+                            </div>
+                        </div>
+                        <!-- /col-md-4 -->
+                    </div>
+                    <!-- /row -->
+                    <div>
+                        <!-- WEATHER PANEL -->
+                        <div >
+                            <p>April 17, 2014</p>
+                        </div>
+                        <!-- /col-md-4-->
+                        <!-- DIRECT MESSAGE PANEL -->
+                        <div class="col-md-8 mb">
+                            <div class="message-p pn">
+                                <div class="message-header">
+                                    <h5>Messages </h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 centered hidden-sm hidden-xs">
+                                        <img src="{{ asset('img/ui-danro.jpg') }}" class="img-circle" width="65">
+                                    </div>
+                                    <div class="col-md-9">
+                                        <p>
+                                            <name>Dan Rogers</name>
+                                            sent you a message.
+                                        </p>
+                                        <p class="small">3 hours ago</p>
+                                        <p class="message">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                                        <form class="form-inline" role="form">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="exampleInputText" placeholder="Reply Dan">
+                                            </div>
+                                            <button type="submit" class="btn btn-default">Send</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Message Panel-->
+                        </div>
+                        <!-- /col-md-8  -->
+
+                        <!-- /col-md-4 -->
+
+                        <!-- /col-md-4 -->
+
+
+                        <!-- /col-md-4 -->
+                    </div>
+                    <!-- /row -->
+                    <div class="row">
+
+                        <!-- /col-md-4 -->
+                        <!--  PROFILE 02 PANEL -->
+                        <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                            <div class="content-panel pn">
+                                <div id="profile-02">
+                                    <div class="user">
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /panel -->
+                        </div>
+                        <!--/ col-md-4 -->
+
+                        <!-- /col-md-4 -->
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /col-lg-9 END SECTION MIDDLE -->
+                <!-- **********************************************************************************************************************************************************
+                    RIGHT SIDEBAR CONTENT
+                    *********************************************************************************************************************************************************** -->
+                <div class="col-lg-3 ds">
+                    <!--COMPLETED ACTIONS DONUTS CHART-->
+
+                    <!--NEW EARNING STATS -->
+
+                    <!--new earning end-->
+                    <!-- RECENT ACTIVITIES SECTION -->
+
+                    <!-- First Activity -->
+
+
+                    <!-- Second Activity -->
+
+                    <!-- Third Activity -->
+
+                    <!-- Fourth Activity -->
+
+                    <!-- USERS ONLINE SECTION -->
+
+                    <!-- CALENDAR-->
+                    <div id="calendar" class="mb">
+                        <div class="panel green-panel no-margin">
+                            <div class="panel-body">
+                                <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
+                                    <div class="arrow"></div>
+                                    <h3 class="popover-title" style="disadding: none;"></h3>
+                                    <div id="date-popover-content" class="popover-content"></div>
+                                </div>
+                                <div id="my-calendar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / calendar -->
+                </div>
+                <!-- /col-lg-3 -->
+            </div>
+            <!-- /row -->
+        </section>
+    </section>
+    <!--main content end-->
+    {% endblock %}
+    <!--footer start-->
+
+    <!--footer end-->
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
+
+    <script src="{{ asset('lib/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script class="include" type="text/javascript" src="{{ asset('lib/jquery.dcjqaccordion.2.7.js') }}"></script>
+    <script src="{{ asset('lib/jquery.scrollTo.min.js') }}"></script>
+    <script src="{{ asset('lib/jquery.nicescroll.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('lib/jquery.sparkline.js') }}"></script>
+    <!--common script for all pages-->
+    <script src="{{ asset('lib/common-scripts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('lib/gritter/js/jquery.gritter.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('lib/gritter-conf.js') }}"></script>
+    <!--script for this page-->
+    <script src="{{ asset('lib/sparkline-chart.js') }}"></script>
+    <script src="{{ asset('lib/zabuto_calendar.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var unique_id = $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: 'Bienvenue à Hunters Club!',
+                // (string | mandatory) the text inside the notification
+                text: 'Bonjour Admin ! Hunters Club application est prête .',
+                // (string | optional) the image to display on the left
+                image: '{{ asset("img/hunters.png") }}',
+                // (bool | optional) if you want it to fade out on its own or just sit there
+                sticky: false,
+                // (int | optional) the time you want it to be alive for before fading out
+                time: 8000,
+                // (string | optional) the class name you want to apply to that specific message
+                class_name: 'my-sticky-class'
+            });
+
+            return false;
+        });
+    </script>
+    <script type="application/javascript">
+        $(document).ready(function() {
+            $("#date-popover").popover({
+                html: true,
+                trigger: "manual"
+            });
+            $("#date-popover").hide();
+            $("#date-popover").click(function(e) {
+                $(this).hide();
+            });
+
+            $("#my-calendar").zabuto_calendar({
+                action: function() {
+                    return myDateFunction(this.id, false);
+                },
+                action_nav: function() {
+                    return myNavFunction(this.id);
+                },
+                ajax: {
+                    url: "show_data.php?action=1",
+                    modal: true
+                },
+                legend: [{
+                    type: "text",
+                    label: "Special event",
+                    badge: "00"
+                },
+                    {
+                        type: "block",
+                        label: "Regular event",
+                    }
+                ]
+            });
+        });
+
+        function myNavFunction(id) {
+            $("#date-popover").hide();
+            var nav = $("#" + id).data("navigation");
+            var to = $("#" + id).data("to");
+            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+{% extends 'baseAdmin.html.twig' %}
+    {% block head %}
+        <style>
+            .img1{ width:50px;
+                height:50px;}
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                text-align: center;
+            }
+            h1{
+                font-family: 'Libre Franklin';
+                text-align: center;
+            }
+            .img:hover {
+                animation: shake 0.5s;
+                animation-iteration-count: infinite;
+
+            }
+            .img{ width:30px;
+                height:30px;}
+            @keyframes shake {
+                0% { transform: translate(1px, 1px) rotate(0deg); }
+                10% { transform: translate(-1px, -2px) rotate(-1deg); }
+                20% { transform: translate(-3px, 0px) rotate(1deg); }
+                30% { transform: translate(3px, 2px) rotate(0deg); }
+                40% { transform: translate(1px, -1px) rotate(1deg); }
+                50% { transform: translate(-1px, 2px) rotate(-1deg); }
+                60% { transform: translate(-3px, 1px) rotate(0deg); }
+                70% { transform: translate(3px, 1px) rotate(-1deg); }
+                80% { transform: translate(-1px, -1px) rotate(1deg); }
+                90% { transform: translate(1px, 2px) rotate(0deg); }
+                100% { transform: translate(1px, -2px) rotate(-1deg); }
+            }
+
+            table {
+                width:100%;
+                align:center;
+            }
+
+
+        </style>
+    {% endblock %}
+    {% block container  %}
+        <body>
+
+        <center>
+            <h1> Les chasseurs </h1>
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+
+                    <tr><th>ID Chasseur</th><th>Total chasse </th><th>Niveau</th>
+
+                    </tr>
+                    </thead>
+                    <tr>
+
+                        {% for nbre in nbreschasses %}
+                    <tr>
+                        <td>{{ nbre .idchasseur}}</td>
+
+                        <td>{{ nbre .nbrechasse}}</td> <br/>
+                        {%  if nbre .nbrechasse >0 and nbre .nbrechasse<=5%}
+                        <td>Initiation</td> <br/>
+                        <td><center><img class="img1" src="{{ asset('images/5.jpg') }}" alt="" ></center>
+
+                        {%  elseif nbre .nbrechasse >5 and nbre .nbrechasse<=10 %}
+                            <td>Débutant</td> <br/>
+                        <td><center><img class="img1" src="{{ asset('images/4.jpg') }}" alt="" ></center>
+                        {%  elseif nbre .nbrechasse >10 and nbre .nbrechasse<=15 %}
+                            <td>Intérmédiaire</td> <br/>
+                        <td><center><img class="img1" src="{{ asset('images/3.jpg') }}" alt="" ></center>
+                        {%  elseif nbre .nbrechasse >15 and nbre .nbrechasse<=30 %}
+                            <td>Avancé</td> <br/>
+                        <td><center><img class="img1" src="{{ asset('images/2.png') }}" alt="" ></center>
+                        {%  elseif nbre .nbrechasse >30  %}
+                            <td>Elite</td> <br/>
+                        <td><center><img class="img1" src="{{ asset('images/1.jpg') }}" alt="" ></center>
+                        {% endif %}
+
+
+
+                        {#<td> {{ score  }}</td>
+                        {% if score <10 %}
+                            <td><center><img class="img1" src="{{ asset('trophees/platine.jpg') }}" alt="" ></center>
+                                </br><center>Platine</center>  </td>
+                            <td> Expert</td>
+                        {% endif %}
+                    </tr>
+#}
+                    {% endfor %}
+
+                    </tr>
+
+
+                    </tr>
+                </table>
+
+
+
+        </center>
+
+        </div>
+        </body>
+    {% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'baseAdmin.html.twig' %}
+{% block container %}
+<br>
+<br>
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+        <!DOCTYPE html>
+        <html lang="en" >
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ asset('css/Question.css') }}">
+        <body>
+        <html>
+        <head>
+            <meta name="viewport" content= "width=device-width, initial-scale=1">
+            <meta name="theme-color" content="#B71C1C">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" href="{{ asset('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css') }}">
+            <script src='{{ asset('https://cdn.firebase.com/js/client/2.2.1/firebase.js') }}'></script>
+        </head>
+        <body>
+        <div class="allholder">
+            <div class="navoverlay"></div>
+            <div id="content">
+                <h2 class="title__line">SORT BY</h2>
+                <h2 class="title__line">FILTER BY</h2>
+                <a href="{{ path("reada") }}" class="btn btn-success">ALL</a>
+                <div class="feed">
+                    {% set ok = 0  %}
+                    {% set ok1 = 0  %}
+                    {% set com = 0 %}
+                    {% set rat = 0 %}
+                    {% set nblike =0 %}
+                    {% for i in questions %}
+                        {% set nblike =0 %}
+                        {% set ok = 0  %}
+                        {% set ok1 = 0  %}
+                        {% set rat = 0 %}
+                        <div class="feed-item blog">
+                            <div class="icon-holder"><h6>
+                                    {% set datePost = i.date|date('d-m-Y') %}
+                                    {% set today = "now"|date('d-m-Y') %}
+                                    {% set difference = date(today).diff(date(datePost))%}
+                                    {% set leftDays = difference.days %}
+                                    {% if datePost == today %}
+                                        1 day
+                                    {% else %}
+                                        {{ leftDays }} days ago
+                                    {% endif %}
+                                </h6></div>
+                            <div class="text-holder col-3-5">
+                                <div class="feed-title">{{ i.quest }}</div>
+                                <div class="feed-description">{{ i.descr }}</div>
+                                <div class="feed-description">
+                                    <a href="{{ path("readrepa",{'id':i.id}) }}">see more</a>
+                                    {% for j in reponses %}
+                                        {% if j.question.id == i.id %}
+                                            {% set com = com+1 %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    reponses : {{ com }}
+                                    {% set com = 0 %}
+                                        <a href="{{ path("deletea",{'id':i.id}) }}" class="btn btn-success">DELETE</a>
+                                </div>
+                            </div>
+                            {% set rat = i.vote - i.nbRep %}
+                            {% if rat < 0 and rat > -10 %}
+                            <i class="material-icons">error</i>
+                                 {% elseif rat < -9 and rat > -50 %}
+                            <i class="material-icons" style="font-size:36px">error</i>
+                                 {% elseif rat < -49 %}
+                            <i class="material-icons" style="font-size:48px;color:red">error</i>
+                                {% endif %}
+                            <div class="post-options-holder">
+                                <div class= "tools">
+                                    {% if i.nbrVue == null %}
+                                        <h6>seen 0</h6>
+                                    {% else %}
+                                        <h6>seen {{ i.nbrVue }}</h6>
+                                    {% endif %}
+                                    <h6> like {{i.vote}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div><!--end of Feed-->
+            </div><!-- End of Content-->
+        </div><!--end of allholder-->
+        </div>
+        </body>
+        </html>
+        <script src='{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js') }}'></script>
+        <script src='{{ asset('https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js') }}'></script><script  src="{{ asset('js/Question.js') }}"></script>
+        </body>
+        </html>
+{% endblock %}

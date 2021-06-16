@@ -1,0 +1,61 @@
+ {% extends 'baseAdmin.html.twig' %}
+{% block header %}
+
+
+{% endblock %}
+{% block container  %}
+
+
+ <center>
+        <h1 ALIGN=center style="color:#4ecdc4  ;">Liste des type des evenements</h1>
+        </br>
+</br></br>
+
+            <table border="1">
+                        <th style="width:5%">les types des evenements</th>
+                        <th style="width:5%">Date d'ajout de type</th>
+                         <th style="width:3%">les actions </th>
+  
+                      </tr>
+                    </thead>
+                   
+                          {% for i in TypeEvents %}
+
+                        <td class="v-align-middle">{{ i.Type }}</td>
+                        <td class="v-align-middle">{{ i.date|date('d/m/y')}}</td>
+
+                  
+                         <td>
+                        
+                          <a href="{{ path('ModifierType',{'id':i.id}) }}" class="btn btn-success" >Modifier  un type</a>
+                           
+                           <a href="{{ path('SupprimerType',{'id':i.id}) }}" class="btn btn-danger" >Supprimer un type</a>
+                        </td>
+                             </tr>
+                          {% endfor %}
+                        
+                      
+
+  
+  </center>
+
+</table>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+{% endblock  %}

@@ -1,0 +1,99 @@
+{% extends 'baseAdmin.html.twig' %}
+    {% block container %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!DOCTYPE html>
+        <html lang="en" >
+        <head>
+            <meta charset="UTF-8">
+            <script src="https://use.fontawesome.com/c334c419c0.js"></script>
+            <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'><link rel="stylesheet" href="{{ asset('css/style1.css') }}">
+
+        </head>
+        <style>
+            .checked {
+                color: orange;
+            }
+        </style>
+        <body>
+        <ol class="activity-feed">
+            {% set star = 0 %}
+            {% set j = 0 %}
+            {% for i in reps %}
+                {% set star = 0 %}
+                {% set j = 0 %}
+                {% if i.question.id == id %}
+                    <li class="feed-item" data-content="&#xf27b;" data-color="blue">
+                        <section>
+                            <input type="checkbox" id="{{ i.decr }}" name="expand_1" />
+                            <label for="{{ i.decr }}">
+                                {% for avi in avis %}
+                                    {% if avi.reponse == i %}
+                                        {% set star = star+avi.avis %}
+                                        {% set j = j+1 %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if star == 0 %}
+                                    <span class="fa fa-star "></span>
+                                    <span class="fa fa-star "></span>
+                                    <span class="fa fa-star "></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                {% elseif star/j < 1 or star/j == 1 %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star "></span>
+                                    <span class="fa fa-star "></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                {% elseif star/j > 1 and star/j <= 2  %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star "></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                {% elseif star/j > 2 and star/j <= 3  %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                {% elseif star/j > 3 and star/j <= 4  %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                {% else %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                {% endif %}
+                                <p><b>{{ i.decr }}</b></p>
+                                    <a href="{{ path("deleterep",{'id':i.id}) }}">delete</a>
+                            </label>
+                            <main class="content">
+                                {% for l in discs %}
+                                    {% if l.reponse == i %}
+                                        <blockquote>
+                                            <p>{{ l.descr }}</p>
+                                                <a href="{{ path("deleted",{'id':l.id}) }}">delete</a>
+                                        </blockquote>
+                                    {% endif %}
+                                {% endfor %}
+                            </main>
+                        </section>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ol>
+        <script  src="{{ asset('css/style1.css') }}"></script>
+        </body>
+        </html>
+{% endblock %}

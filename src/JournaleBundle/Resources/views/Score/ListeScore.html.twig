@@ -1,0 +1,133 @@
+ {% extends 'baseClient.html.twig' %}
+    {% block head %}
+        <style>
+
+          .img1{
+              width: 300px;
+              height: 300px;
+          }
+            .profile
+            {
+                font-family: 'Lato', 'sans-serif';
+                size: A3;
+            }
+            .profile
+            {
+                /*    height: 321px;
+                    width: 265px;*/
+                margin-top: 2px;
+                padding:1px;
+                display: inline-block;
+            }
+            .divider
+            {
+                border-top:1px solid rgba(0,0,0,0.1);
+            }
+            .emphasis
+            {
+                border-top: 1px solid transparent;
+            }
+
+            .emphasis h2
+            {
+                margin-bottom:0;
+            }
+            span.tags
+            {
+                background: #1abc9c;
+                border-radius: 2px;
+                color: #f5f5f5;
+                font-weight: bold;
+                padding: 2px 4px;
+            }
+            .profile strong,span,div{
+                text-transform: initial;
+            }
+
+
+
+        </style>
+    {% endblock %}
+    {% block container  %}
+        <center>
+        <body>
+        <div class="container">
+            <div class="d-flex p-2">
+            <div class="row">
+
+               <div class="col-lg-3  ">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border-radius: 16px;">
+                            <div class="well profile col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                    <figure>
+                                        <img src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" alt="" class="img-circle" style="width:75px;" id="user-img">
+                                    </figure>
+                                    {{ score }}
+                                    <h5 style="text-align:center;"><strong id="user-name">{{app.user.username  }}</strong>
+                                        {% if score<=10  %}<img class="img1" src="{{ asset('trophees/platine.jpg') }}" alt="" >
+                                        {% elseif score >10 %}
+                                            <img class="img1" src="{{ asset('trophees/bronze.jpg') }}" alt="" >
+
+
+
+
+                                        {% endif %}</h5>
+                                    <p style="text-align:center;font-size: smaller;" id="user-frid">{{app.user.email  }} </p>
+                                    <p style="text-align:center;font-size: smaller;overflow-wrap: break-word;" id="user-email"> </p>
+                                    <p style="text-align:center;font-size: smaller;"><strong>A/C status: </strong><span class="tags" id="user-status">Active</span></p>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 divider text-center"></div>
+                                    <p style="text-align:center;font-size: smaller;"><strong>Niveau</strong></p>
+                                    <p style="text-align:center;font-size: smaller;" id="user-role"> {% for nbre in nbreschasses %}
+
+                                        {%  if nbre .nbrechasse >0 and nbre .nbrechasse<=5%}
+                                        Initiation
+
+
+                                            {%  elseif nbre .nbrechasse >5 and nbre .nbrechasse<=10 %}
+                                    <td>Débutant</td> <br/>
+
+                                        {%  elseif nbre .nbrechasse >10 and nbre .nbrechasse<=15 %}
+                                    <td>Intérmédiaire</td> <br/>
+                                     {%  elseif nbre .nbrechasse >15 and nbre .nbrechasse<=30 %}
+                                    <td>Avancé</td> <br/>
+
+                                        {%  elseif nbre .nbrechasse >30  %}
+                                    <td>Elite</td> <br/>
+
+                                        {% endif %}
+                                    {% endfor %}
+
+                                        </p>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 divider text-center"></div>
+                                    <div class="col-lg-6 left" style="text-align:center;overflow-wrap: break-word;">
+                                        <h4><p style="text-align: center;"><strong id="user-globe-rank"> {% for nbre in nbreschasses %}
+                                                        {{ nbre .nbrechasse}}
+
+                                                    {% endfor %}</strong></p></h4>
+                                        <p><small class="label label-success">Total Chasse </small></p>
+                                        <!--<button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Follow </button>-->
+                                    </div>
+                                    <div class=" col-lg-6 left" style="text-align:center;overflow-wrap: break-word;">
+                                        <h4><p style="text-align: center;"><strong id="user-college-rank">{{ score  }}</strong></p></h4>
+                                        <p> <small class="label label-warning">Score</small></p>
+                                        <!-- <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+
+
+        </center>
+
+        </div>
+        </body>
+    {% endblock %}

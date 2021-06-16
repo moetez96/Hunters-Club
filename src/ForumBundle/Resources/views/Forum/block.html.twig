@@ -1,0 +1,19 @@
+warning
+        {% set datePost = 0 %}
+        {% set today = 0 %}
+        {% set difference = 0 %}
+        {% set leftDays = 0 %}
+{% for block in blo %}
+    {% if block.user.id == app.user.id %}
+        {% set datePost = block.nbjours|date('d-m-Y') %}
+        {% set today = "now"|date('d-m-Y') %}
+        {% set difference = date(today).diff(date(datePost))%}
+        {% set leftDays = difference.days %}
+    {% endif %}
+{% endfor %}
+
+{% if datePost == today %}
+    1 day
+{% else %}
+    {{ leftDays }} days remaining
+{% endif %}

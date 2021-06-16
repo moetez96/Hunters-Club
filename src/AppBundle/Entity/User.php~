@@ -1,0 +1,51 @@
+<?php
+// src/AppBundle/Entity/User.php
+
+namespace AppBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="user")
+ */
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="role", type="string", length=255,nullable=true)
+     */
+    private $role;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NumeroTelephone", type="string", length=255,nullable=true)
+     */
+    private $NumeroTelephone;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cin", type="string", length=255,nullable=true)
+     */
+    private $cin;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Adresse", type="string", length=255,nullable=true)
+     */
+    private $Adresse;
+
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
+}

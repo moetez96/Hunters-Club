@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 500px;  /* The height is 400 pixels */
+        width: 500px;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBEDfNcQRmKQEyulDN8nGWjLYPm8s4YB58&libraries=places"></script>
+
+    <h3>Localisation des notre évènements </h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+
+       
+
+
+
+    var locations = [
+
+
+        {% for event in events %}
+
+        ['{{ event.lieu}}', {{ event.Latitude}} , {{ event.Longitude }}, 1],
+
+
+
+
+        {% endfor %}
+
+
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 7,
+        center: new google.maps.LatLng(34.39824207, 8.79656443),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
+        });
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infowindow.setContent(locations[i][0]);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+    }
+</script>
+
+
+
+
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <center>
+    <a href="{{ path('ConsulterEvenement') }}" class="btn btn-success">Retour </a></center>
+  </body>
+</html
+

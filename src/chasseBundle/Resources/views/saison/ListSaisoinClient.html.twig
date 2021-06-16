@@ -1,0 +1,44 @@
+{% extends 'baseClient.html.twig' %}
+{% block head %}
+{% endblock %}
+{% block container %}
+    <div class="container">
+    <h1 ALIGN=center style="color:#4ecdc4  ;">Liste des saisons </h1>
+    </br>
+    </br>
+    </br>
+        <script src="{{ asset('public/js/rating.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/rating.css') }}" />
+
+        {% for a in saison %}
+
+        <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ asset(a.animal.getImage()) }}"  width="160"
+                     height="160"/>
+                <div class="card-body">
+
+                    <h3 class="card-title">Nom de l'animal :{{ a.animal.getNomAnnimal() }}</h3>
+
+                    <h3 class="card-title">Lieu :{{ a.lieu.getNom() }}</h3>
+
+                    <h3 class="card-title">Rating  :{{ a.rating  |  rating(5,"fa-3x")  }}</h3>
+                       <a href="{{ path('rating',{id:a.id}) }}" class="btn btn-success">Evaluer Saision </a>
+                </div>
+            </div>
+            </br>
+            </br>
+            </br>
+        </div>
+
+    {% endfor %}
+
+    <hr>
+    <a href="http://www.jquery2dotnet.com/" class="mx-auto pb-3 text-center">
+    </a>
+    </div>
+    </center>
+    </div>
+
+{% endblock  %}

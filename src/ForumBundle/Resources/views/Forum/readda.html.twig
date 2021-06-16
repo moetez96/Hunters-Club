@@ -1,0 +1,18 @@
+{% extends 'baseAdmin.html.twig' %}
+    {% block container %}
+<br><br><br><br>
+<div class="shadow">
+    {{ reponse.decr }}</div>
+<div class="shadow">
+{% for i in discs %}
+    <div class="container1" style="background-color:lightblue">
+        {% if i.reponse.id == id %}
+            <center>
+                <li>{{ i.descr }}</li>
+                <a href="{{ path("deleteda",{'id':i.id}) }}">delete</a>
+            </center>
+        {% endif %}
+    </div><br>
+{% endfor %}
+</div>
+{% endblock %}
